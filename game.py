@@ -1,37 +1,34 @@
 import pandas as pd
+import numpy as np
 
-melb_data = pd.read_csv('data/melb_data.csv', sep=',')
-melb_data['Postcode'] = melb_data['Postcode'].astype('int64')
-melb_data['Car'] = melb_data['Car'].astype('int64')
-melb_data['Bedroom'] = melb_data['Bedroom'].astype('int64')
-melb_data['Bathroom'] = melb_data['Bathroom'].astype('int64')
-melb_data['Propertycount'] = melb_data['Propertycount'].astype('int64')
-melb_data['YearBuilt'] = melb_data['YearBuilt'].astype('int64')
-# print(melb_data.describe().loc[:, ['Distance', 'BuildingArea' , 'Price']])
-# print(melb_data.describe(include=['int64']))
-# print( melb_data.info())
-# print(melb_data['Type'].value_counts())
-# print(melb_data['Propertycount'].max())
-f = melb_data.copy()
-f = f.drop(['index', 'Coordinates'], axis=1)
-f['Date'] = pd.to_datetime(f['Date'])
-f['MonthSale'] = f['Date'].dt.month
-delta = f['Date'] - pd.to_datetime('2016-01-01') # – разница в днях между фикс датой и датой
+f=pd.read_csv('data/citibike-tripdata.csv', sep=',')
+f_base = f.copy()
 
-AgeBuilding = f['Date'].dt.year - f['YearBuilt']
+f.drop(['end station id', 'start station id'], axis=1, inplace=True)
 
-f['WeekdaySale'] = f['Date'].dt.dayofweek
-su = f[(f['WeekdaySale'] == 5) | (f['WeekdaySale'] == 6)]['Price'].sum()
-su1 = f[f['WeekdaySale'] == 5]['WeekdaySale'].sum()/5 +f[f['WeekdaySale'] == 6]['WeekdaySale'].sum()/6
-        
-        
-        
+f['age'] = 2018 - f['birth year']
+f.drop('birth year', axis=1, inplace=True)
 
-serf = f['SellerG'].value_counts()[:49]
+# print(f[f['age'] > 60].count())
 
-f['SellerG'] = f['SellerG'].apply(lambda x: x if x in serf else 'other')
+f['starttime'] = pd.to_datetime(f['starttime'])
+f['stoptime'] = pd.to_datetime(f['stoptime'])
 
- 
+f['trip duration'] = f['stoptime'] - f['starttime']
+f['trip duration'] = f['trip duration'].dt.seconds
 
-print(f[f['SellerG'] == 'Nelson']['Price'].min() / f[f['SellerG'] == 'other']['Price'].min())
+f['weekend'] = f['starttime'].dt.dayofweek
+f['weekend'] = f['weekend'].apply(lambda x: 1 if x == 5 or x == 6 else 0)
 
+def tod(x):
+    if x <=6 and x >=0:
+        return 'night'
+    elif 6< x <=12:
+        return 'morning'
+    elif 12 < x <=18:
+        return 'day'
+    else: 
+        return 'evening'
+
+f['time_of_day'] = f['starttime'].dt.hour.apply(tod)
+print(f[f['time_of_day'] == 'day']['time_of_day'].count()/f[f['time_of_day'] == 'night']['time_of_day'].count())
