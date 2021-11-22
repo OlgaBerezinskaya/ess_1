@@ -20,7 +20,7 @@ for el in af['title']:
 af['year_release'] = s
 
 aff = af[af['year_release'] == 2000]
-# print(aff.groupby(by='movieId')['rating'].mean().min())
+print(aff.groupby(by='genres')['rating'].mean().min())
 
 # print(af[af['year_release'] == 1999].groupby(by='movieId')['rating'].mean().sort_values())
 # print(af[af['movieId'] == 145951])
@@ -35,6 +35,7 @@ sps = []
 for el in af['userId']:
     if af.groupby(by='userId')['rating'].count()[el] == smin:
         sps.append(el)
+sps = dict(sps)
 # print(sps)    
 # print(sp.sort_values())
 # print(af[af.groupby(by='userId')['rating'].count() == smin]['rating'].mean())
