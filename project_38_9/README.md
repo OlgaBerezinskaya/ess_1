@@ -43,6 +43,6 @@
 ## СОДЕРЖАНИЕ ОТЧЕТА
 
 
-* <a href="https://github.com/OlgaBerezinskaya/ess_1/blob/main/projet_1/game_2v.py">Код исследования</a>
-* <a href="https://github.com/OlgaBerezinskaya/ess_1/blob/main/projet_1/game.ipynb">Интерфейс расчетов и выводов</a>
+* <a href="https://github.com/OlgaBerezinskaya/ess_1/blob/main/project_38_9/38_9_pro.py">Код исследования</a>
+* <a href="https://github.com/OlgaBerezinskaya/ess_1/blob/main/project_38_9/38_9_pro.ipynb">Интерфейс расчетов и выводов</a>
 
