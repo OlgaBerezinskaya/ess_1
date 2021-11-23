@@ -1,7 +1,7 @@
 import pandas as pd
 
 # считываем базовые файлы
-ev = pd.read_csv('data/events.csv', sep=',')  # 252334 rows x 6 columns : id > event_type > selected_level > start_time > tutorial_id > user_id 
+ev = pd.read_csv('data/7_4_Events.csv', sep=',')  # 252334 rows x 6 columns : id > event_type > selected_level > start_time > tutorial_id > user_id 
 pur = pd.read_csv('data/purchase.csv', sep=',')   # 5956 rows x 4 columns : id > user_id > event_datetime > amount 
 
 # оставляем только юзеров с регой от 2018 г.
