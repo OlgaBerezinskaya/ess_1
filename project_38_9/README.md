@@ -43,6 +43,6 @@
 ## СОДЕРЖАНИЕ ОТЧЕТА
 
 
-* <a href="https://github.com/OlgaBerezinskaya/ess_1/blob/main/project_38_9/38_9_pro.py">Код исследования</a>
+* <a href="https://github.com/OlgaBerezinskaya/ess_1/blob/main/project_38_9/pro_38_9.py">Код исследования</a>
 * <a href="https://github.com/OlgaBerezinskaya/ess_1/blob/main/project_38_9/p_38_9.ipynb">Интерфейс расчетов и выводов</a>
 
