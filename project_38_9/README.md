@@ -92,7 +92,7 @@
 * <a href="https://github.com/OlgaBerezinskaya/ess_1/blob/main/project_38_9/pro_3_2.py">Код исследования</a>
 * <a href="https://github.com/OlgaBerezinskaya/ess_1/blob/main/project_38_9/pro_3.ipynb">Интерфейс расчетов и выводов</a>
 
-#
+
 #
 ## ДОПОЛНИТЕЛЬНЫЕ МАТЕРИАЛЫ:
 Исследование взаимосвязи выбранного пользователем уровня сложности бесплатных вопросов и покупкой пакета платных вопросов
